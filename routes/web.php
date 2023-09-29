@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use \App\Http\Livewire\ShowThreads;
+use \App\Http\Livewire\ShowThread;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,5 +15,6 @@ use \App\Http\Livewire\ShowThreads;
 |
 */
 Route::get('/',ShowThreads::class)->middleware(['auth'])->name('dashboard');
+Route::get('/thread/{thread}',ShowThread::class)->middleware(['auth'])->name('thread');
 
 require __DIR__.'/auth.php';
