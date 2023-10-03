@@ -6,7 +6,7 @@
     >
         <option value="">Seleccionar categoria</option>
         @foreach ($categories as $category)
-            <option value="{{$category->id}}" @if ($thread->category_id==$category->id) selected @endif>
+            <option value="{{$category->id}}" @if (old('category_id',$thread->category_id)==$category->id) selected @endif>
                 {{$category->name}}
             </option>
         @endforeach
@@ -15,11 +15,11 @@
         type="text" name="title"
         placeholder="Titulo"
         class="bg-slate-800 border-1 border-slate-900 rounded-md w-full p-3 text-white/60 text-xs capitalize mb-4"
-        value="{{$thread->title}}"    
+        value="{{old('title',$thread->title)}}"    
     >
     <textarea 
         name="body" rows="10"
         placeholder="Descripción del problema"
         class="bg-slate-800 border-1 border-slate-900 rounded-md w-full p-3 text-white/60 text-xs capitalize mb-4"
-    >{{$thread->body}}</textarea>
+    >{{old('body',$thread->body)}}</textarea>
 </div>
